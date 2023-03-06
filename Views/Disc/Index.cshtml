@@ -1,0 +1,89 @@
+@model IEnumerable<MyDiscs.Models.Disc>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Speed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Glide)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Turn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Plastic)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bagged)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImageName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Brand)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Speed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Glide)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Turn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Plastic)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bagged)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImageName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.CategoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Brand.BrandName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.DiscId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.DiscId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.DiscId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
