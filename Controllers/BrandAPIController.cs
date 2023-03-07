@@ -10,7 +10,7 @@ using MyDiscs.Models;
 
 namespace MyDiscs.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/brand")]
     [ApiController]
     public class BrandAPIController : ControllerBase
     {
@@ -21,7 +21,7 @@ namespace MyDiscs.Controllers
             _context = context;
         }
 
-        // GET: api/BrandAPI
+        // GET: api/Brand
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Brand>>> GetBrands()
         {
@@ -32,7 +32,7 @@ namespace MyDiscs.Controllers
             return await _context.Brands.ToListAsync();
         }
 
-        // GET: api/BrandAPI/5
+        // GET: api/Brand/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Brand>> GetBrand(int id)
         {
@@ -50,7 +50,7 @@ namespace MyDiscs.Controllers
             return brand;
         }
 
-        // PUT: api/BrandAPI/5
+        // PUT: api/Brand/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutBrand(int id, Brand brand)
@@ -81,7 +81,7 @@ namespace MyDiscs.Controllers
             return NoContent();
         }
 
-        // POST: api/BrandAPI
+        // POST: api/Brand
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Brand>> PostBrand(Brand brand)
@@ -96,7 +96,7 @@ namespace MyDiscs.Controllers
             return CreatedAtAction("GetBrand", new { id = brand.BrandId }, brand);
         }
 
-        // DELETE: api/BrandAPI/5
+        // DELETE: api/Brand/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteBrand(int id)
         {

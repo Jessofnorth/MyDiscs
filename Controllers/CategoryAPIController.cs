@@ -10,7 +10,7 @@ using MyDiscs.Models;
 
 namespace MyDiscs.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/category")]
     [ApiController]
     public class CategoryAPIController : ControllerBase
     {
@@ -21,7 +21,7 @@ namespace MyDiscs.Controllers
             _context = context;
         }
 
-        // GET: api/CategoryAPI
+        // GET: api/Category
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Category>>> GetCategories()
         {
@@ -32,7 +32,7 @@ namespace MyDiscs.Controllers
             return await _context.Categories.ToListAsync();
         }
 
-        // GET: api/CategoryAPI/5
+        // GET: api/Category/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Category>> GetCategory(int id)
         {
@@ -50,7 +50,7 @@ namespace MyDiscs.Controllers
             return category;
         }
 
-        // PUT: api/CategoryAPI/5
+        // PUT: api/Category/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCategory(int id, Category category)
@@ -81,7 +81,7 @@ namespace MyDiscs.Controllers
             return NoContent();
         }
 
-        // POST: api/CategoryAPI
+        // POST: api/Category
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Category>> PostCategory(Category category)
@@ -96,7 +96,7 @@ namespace MyDiscs.Controllers
             return CreatedAtAction("GetCategory", new { id = category.CategoryId }, category);
         }
 
-        // DELETE: api/CategoryAPI/5
+        // DELETE: api/Category/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCategory(int id)
         {

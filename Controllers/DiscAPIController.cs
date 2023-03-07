@@ -10,7 +10,7 @@ using MyDiscs.Models;
 
 namespace MyDiscs.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/disc")]
     [ApiController]
     public class DiscAPIController : ControllerBase
     {
@@ -21,26 +21,28 @@ namespace MyDiscs.Controllers
             _context = context;
         }
 
-        // GET: api/DiscAPI
+        // GET: api/Disc
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Disc>>> GetDiscs()
         {
-          if (_context.Discs == null)
-          {
-              return NotFound();
-          }
-            return await _context.Discs.ToListAsync();
+            if (_context.Discs == null)
+            {
+                return NotFound();
+            }
+            //include brand and category info to result
+            return await _context.Discs.Include(d => d.Brand).Include(d => d.Category).ToListAsync();
         }
 
-        // GET: api/DiscAPI/5
+        // GET: api/Disc/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Disc>> GetDisc(int id)
         {
-          if (_context.Discs == null)
-          {
-              return NotFound();
-          }
-            var disc = await _context.Discs.FindAsync(id);
+            if (_context.Discs == null)
+            {
+                return NotFound();
+            }
+            //include brand and category info to result
+            var disc = await _context.Discs.Include(d => d.Brand).Include(d => d.Category).FirstOrDefaultAsync(m => m.DiscId == id);
 
             if (disc == null)
             {
@@ -50,7 +52,7 @@ namespace MyDiscs.Controllers
             return disc;
         }
 
-        // PUT: api/DiscAPI/5
+        // PUT: api/Disc/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutDisc(int id, Disc disc)
@@ -78,25 +80,26 @@ namespace MyDiscs.Controllers
                 }
             }
 
-            return NoContent();
+            await _context.Discs.Include(d => d.Brand).Include(d => d.Category).FirstOrDefaultAsync(m => m.DiscId == id);
+            return CreatedAtAction("GetDisc", new { id = disc.DiscId }, disc);
         }
 
-        // POST: api/DiscAPI
+        // POST: api/Disc
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Disc>> PostDisc(Disc disc)
         {
-          if (_context.Discs == null)
-          {
-              return Problem("Entity set 'MydiscContext.Discs'  is null.");
-          }
+            if (_context.Discs == null)
+            {
+                return Problem("Entity set 'MydiscContext.Discs'  is null.");
+            }
             _context.Discs.Add(disc);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetDisc", new { id = disc.DiscId }, disc);
         }
 
-        // DELETE: api/DiscAPI/5
+        // DELETE: api/Disc/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteDisc(int id)
         {
