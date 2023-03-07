@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,9 @@ using MyDiscs.Models;
 
 namespace MyDiscs.Controllers
 {
+
+    //only loged in users can access this controller
+    [Authorize]
     public class BrandController : Controller
     {
         private readonly MydiscContext _context;
@@ -22,9 +26,9 @@ namespace MyDiscs.Controllers
         // GET: Brand
         public async Task<IActionResult> Index()
         {
-              return _context.Brands != null ? 
-                          View(await _context.Brands.ToListAsync()) :
-                          Problem("Entity set 'MydiscContext.Brands'  is null.");
+            return _context.Brands != null ?
+                        View(await _context.Brands.ToListAsync()) :
+                        Problem("Entity set 'MydiscContext.Brands'  is null.");
         }
 
         // GET: Brand/Details/5
@@ -150,14 +154,36 @@ namespace MyDiscs.Controllers
             {
                 _context.Brands.Remove(brand);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool BrandExists(int id)
         {
-          return (_context.Brands?.Any(e => e.BrandId == id)).GetValueOrDefault();
+            return (_context.Brands?.Any(e => e.BrandId == id)).GetValueOrDefault();
+        }
+
+        //Search function 
+        public async Task<IActionResult> Search(string searchString)
+        {
+            //return index view if string is null or empty 
+            if (string.IsNullOrWhiteSpace(searchString))
+            {
+                return View("Index", await _context.Brands.ToListAsync());
+            }
+
+            //if string is not null or empty, return result to view. 
+            var brand = await _context.Brands
+                .Where(b => b.BrandName.ToLower().Contains(searchString.ToLower()))
+                .ToListAsync();
+
+            //if no matches, return message 
+            if (brand.Count == 0)
+            {
+                ViewBag.Message = searchString + " not found";
+            }
+            return View("Index", brand);
         }
     }
 }
