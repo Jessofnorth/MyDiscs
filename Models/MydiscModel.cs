@@ -35,7 +35,7 @@ namespace MyDiscs.Models
 
         [Required(ErrorMessage = "Please enter if bagged or not.")]
         [Display(Name = "In bag:")]
-        public bool? Bagged { get; set; }
+        public bool Bagged { get; set; }
 
         [Display(Name = "Image:")]
         public string? ImageName { get; set; }

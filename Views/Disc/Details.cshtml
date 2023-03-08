@@ -4,10 +4,10 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1>@ViewData["Title"]</h1>
 
 <div>
-    <h4>Disc</h4>
+     <h4>@Html.DisplayFor(model => model.Brand.BrandName) - @Html.DisplayFor(model => model.Name)</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -50,13 +50,18 @@
             @Html.DisplayNameFor(model => model.Bagged)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Bagged)
+            @* check bool and display status based on it *@
+                            @if (Model.Bagged == true){
+                                <p>Yes</p>
+                            }else{
+                                <p>No</p>
+                            }
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.ImageName)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ImageName)
+            <img src="~/uploads/thumb_@Html.DisplayFor(model => model.ImageName)" class="thumbnail" alt="Photo of disc."/>
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Category)
@@ -73,6 +78,7 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.DiscId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model?.DiscId" class="btn btn-primary mt-3"><i class="bi bi-pencil pe-2"></i>Edit</a>  
+    <br />
+    <a asp-action="Index" class="btn btn-success mt-3" ><i class="bi bi-arrow-left-circle me-2"></i>Back to List</a>
 </div>
