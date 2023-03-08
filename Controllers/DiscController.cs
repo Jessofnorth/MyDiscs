@@ -71,7 +71,7 @@ namespace MyDiscs.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("DiscId,Name,Speed,Glide,Turn,Fade,Plastic,Bagged,ImageName,CategoryId,BrandId")] Disc disc)
+        public async Task<IActionResult> Create([Bind("DiscId,Name,Speed,Glide,Turn,Fade,Plastic,Bagged,ImageFile,CategoryId,BrandId")] Disc disc)
         {
             if (ModelState.IsValid)
             {
@@ -97,7 +97,7 @@ namespace MyDiscs.Controllers
                     //create thumbnails and webp 
                     ImageFile(filename);
                 }else{
-                    disc.ImageName = Path.Combine(wwwRootPath + "/uploads/standard.png");
+                    disc.ImageName = "standard.png";
                 }
 
                 _context.Add(disc);
