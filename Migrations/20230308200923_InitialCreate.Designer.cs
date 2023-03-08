@@ -11,7 +11,7 @@ using MyDiscs.Data;
 namespace MyDiscs.Migrations
 {
     [DbContext(typeof(MydiscContext))]
-    [Migration("20230306155248_InitialCreate")]
+    [Migration("20230308200923_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -254,8 +254,7 @@ namespace MyDiscs.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<bool?>("Bagged")
-                        .IsRequired()
+                    b.Property<bool>("Bagged")
                         .HasColumnType("INTEGER");
 
                     b.Property<int?>("BrandId")

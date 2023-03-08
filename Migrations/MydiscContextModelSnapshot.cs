@@ -251,8 +251,7 @@ namespace MyDiscs.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<bool?>("Bagged")
-                        .IsRequired()
+                    b.Property<bool>("Bagged")
                         .HasColumnType("INTEGER");
 
                     b.Property<int?>("BrandId")
