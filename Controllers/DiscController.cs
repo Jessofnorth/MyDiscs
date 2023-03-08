@@ -214,7 +214,7 @@ namespace MyDiscs.Controllers
             //return index view if string is null or empty 
             if (string.IsNullOrWhiteSpace(searchString))
             {
-                return View("Index", await _context.Discs.ToListAsync());
+                return View("Index", await _context.Discs.Include(d => d.Brand).Include(d => d.Category).ToListAsync());
             }
 
             //if string is not null or empty, return result to view. 

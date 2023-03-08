@@ -37,7 +37,7 @@ namespace MyDiscs.Models
         [Display(Name = "In bag:")]
         public bool? Bagged { get; set; }
 
-        [Display(Name = "Image URL")]
+        [Display(Name = "Image:")]
         public string? ImageName { get; set; }
 
         [NotMapped]
