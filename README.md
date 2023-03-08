@@ -1,6 +1,6 @@
 # DT191G, Projekt - Webbutveckling med .NET
 
-Detta projekt är ett MVC projekt skapat i ASP .NET med Entity Framework samt Identity. Databasen är i SQLite. Dett finns även ett API som går att konsumera från utanför projektet med CRUD funktionalitet.
+Detta projekt är ett MVC projekt skapat i ASP .NET med Entity Framework samt Identity. Databasen är i SQLite. Dett finns även ett API som går att konsumera från utanför projektet med CRUD funktionalitet. CSS ramverk är Bootstrap. 
 
 En admin del är scaffoldad genom .NET MVC som har Identity för hantering av användare och inlogg, denna del kan ej kommas åt utan att vara inloggad. 
 
