@@ -1,8 +1,56 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Start";
 }
+<section>
+    <article>
+        <div class="container">
+            <h2>Admin panel</h2>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
+                 <div class="col d-flex align-items-start justify-content-center border rounded shadow-sm mx-1">
+                    <i class="bi bi-plus-circle me-2" style="font-size: 2rem"></i>         
+                    <div>
+                        <h3 class="fw-bold mb-0 fs-4 py-2">Discs</h3>
+                        <ul>
+                            <li> <a asp-controller="Disc" asp-action="Index">View all</a></li>
+                            <li> <a asp-controller="Disc" asp-action="Create">Create new disc</a></li>
+                        </ul>
+                    </div>
+                </div>
+                 <div class="col d-flex align-items-start justify-content-center border rounded shadow-sm mx-1">
+                    <i class="bi bi-tag me-2" style="font-size: 2rem"></i>         
+                    <div>
+                        <h3 class="fw-bold mb-0 fs-4 py-2">Brands</h3>
+                        <ul>
+                            <li> <a asp-controller="Brand" asp-action="Index">View all</a></li>
+                            <li> <a asp-controller="Brand" asp-action="Create">Create new brand</a></li>
+                        </ul>
+                    </div>
+                </div>
+                 <div class="col d-flex align-items-start justify-content-center border rounded shadow-sm mx-1">
+                    <i class="bi bi-filter-square me-2" style="font-size: 2rem"></i>         
+                    <div>
+                        <h3 class="fw-bold mb-0 fs-4 py-2">Categories</h3>
+                        <ul>
+                        <li> <a asp-controller="Category" asp-action="Index">View all</a></li>
+                            <li> <a asp-controller="Category" asp-action="Create">Create new category</a></li>
+                        </ul>
+                    </div>
+                </div>
+                 <div class="col d-flex align-items-start justify-content-center border rounded shadow-sm mx-1">
+                    <i class="bi bi-person-circle me-2" style="font-size: 2rem"></i>         
+                    <div>
+                        <h3 class="fw-bold mb-0 fs-4 py-2">Account</h3>
+                        <ul>
+                            <li> <a asp-area="Identity" asp-page="/Account/Manage/Index">Manage account</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+    <article>
+        <h2>About webpage</h2>
+        <p>This webpage is a school project made by Jessica Ejelöv for the course Webdevelopment with .NET at Mid Sweden University.</p>
+    </article>
+</section>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
