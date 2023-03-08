@@ -476,7 +476,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# exclude images 
-*/uploads/*
-*.jpg
-*.webp
+
