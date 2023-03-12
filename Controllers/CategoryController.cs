@@ -12,6 +12,8 @@ using MyDiscs.Models;
 namespace MyDiscs.Controllers
 {
 
+ // controller for Category model with search
+
     //only loged in users can access this controller
     [Authorize]
     public class CategoryController : Controller

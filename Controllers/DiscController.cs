@@ -13,6 +13,7 @@ using SixLabors.ImageSharp.Processing;
 
 namespace MyDiscs.Controllers
 {
+     // controller for Disc model with search and image upload
 
     //only loged in users can access this controller
     [Authorize]

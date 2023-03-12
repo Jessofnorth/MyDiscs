@@ -10,6 +10,8 @@ using MyDiscs.Models;
 
 namespace MyDiscs.Controllers
 {
+    // API controller for Category model with Crud functionality
+
     [Route("api/category")]
     [ApiController]
     public class CategoryAPIController : ControllerBase

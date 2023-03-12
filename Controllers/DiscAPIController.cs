@@ -10,6 +10,8 @@ using MyDiscs.Models;
 
 namespace MyDiscs.Controllers
 {
+    // API controller for Disc model with Crud functionality
+
     [Route("api/disc")]
     [ApiController]
     public class DiscAPIController : ControllerBase

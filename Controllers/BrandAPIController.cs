@@ -10,6 +10,9 @@ using MyDiscs.Models;
 
 namespace MyDiscs.Controllers
 {
+
+    // API controller for Brand model with Crud functionality
+
     [Route("api/brand")]
     [ApiController]
     public class BrandAPIController : ControllerBase

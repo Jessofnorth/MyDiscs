@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace MyDiscs.Data
 {
+    // database context for Mydiscs
     public class MydiscContext : IdentityDbContext
     {
         public MydiscContext(DbContextOptions<MydiscContext> options)

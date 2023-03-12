@@ -5,6 +5,8 @@ namespace MyDiscs.Models
 {
     public class Disc
     {
+        //disc model with FKs from category and brand
+        
         [Key]
         public int DiscId { get; set; }
 
@@ -25,7 +27,7 @@ namespace MyDiscs.Models
         [Display(Name = "Turn:")]
         public int? Turn { get; set; }
 
-        [Required (ErrorMessage = "Please enter fade.")]
+        [Required(ErrorMessage = "Please enter fade.")]
         [Display(Name = "Fade:")]
         public int? Fade { get; set; }
 
@@ -61,6 +63,8 @@ namespace MyDiscs.Models
 
     public class Category
     {
+        //category model 
+
         [Key]
         public int CategoryId { get; set; }
 
@@ -73,6 +77,8 @@ namespace MyDiscs.Models
 
     public class Brand
     {
+        //brand model
+
         [Key]
         public int BrandId { get; set; }
 
