@@ -4,6 +4,9 @@ Detta projekt är ett MVC projekt skapat i ASP .NET med Entity Framework samt Id
 
 En admin del är scaffoldad genom .NET MVC som har Identity för hantering av användare och inlogg, denna del kan ej kommas åt utan att vara inloggad. 
 
+## Länk till live demo 
+[Demo](https://mydiscs.azurewebsites.net/)
+
 Nedan beskrivs hur APIet är strukturerat samt vilka endpoints som finns att tillgå. 
 
 ## Databastabeller

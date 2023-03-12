@@ -1,9 +1,15 @@
 ﻿@{
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@* use identity to show/hide certain parts of navigation/page *@
     ViewData["Title"] = "Start";
+
 }
 <section>
     <article>
         <div class="container">
+             @if (SignInManager.IsSignedIn(User)) {
             <h2>Admin panel</h2>
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
                  <div class="col d-flex align-items-start justify-content-center border rounded shadow-sm mx-1">
@@ -46,6 +52,10 @@
                     </div>
                 </div>
             </div>
+            } else {
+                <h1>Welcome to MyDiscs Admin panel</h1>
+                <p>You must log in or register as a new user to be able to use this page.</p>            
+                }
         </div>
     </article>
     <article>
