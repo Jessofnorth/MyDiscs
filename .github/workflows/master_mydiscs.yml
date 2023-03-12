@@ -53,5 +53,5 @@ jobs:
         with:
           app-name: 'MyDiscs'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_67C48EBF600C485CBFD8F9759440C4AF }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_7F770BACB51045A892E361832506A266 }}
           package: .
