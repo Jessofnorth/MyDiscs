@@ -32,7 +32,14 @@ namespace MyDiscs.Controllers
                 return NotFound();
             }
             //include brand and category info to result
-            return await _context.Discs.Include(d => d.Brand).Include(d => d.Category).ToListAsync();
+            var discs = await _context.Discs.Include(d => d.Brand).Include(d => d.Category).ToListAsync();
+            //add link to image name in response
+            foreach (var disc in discs)
+            {
+                var root = $"{Request.Scheme}://{Request.Host.Value}";
+                disc.ImageName = root + "/uploads/" + disc.ImageName;
+            }
+            return discs;
         }
 
         // GET: api/Disc/5
@@ -50,6 +57,10 @@ namespace MyDiscs.Controllers
             {
                 return NotFound();
             }
+            
+            //add link to image name in response
+            var root = $"{Request.Scheme}://{Request.Host.Value}";
+            disc.ImageName = root + "/uploads/" + disc.ImageName;
 
             return disc;
         }
