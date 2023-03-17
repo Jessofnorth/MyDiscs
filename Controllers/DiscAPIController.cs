@@ -37,7 +37,7 @@ namespace MyDiscs.Controllers
             foreach (var disc in discs)
             {
                 var root = $"{Request.Scheme}://{Request.Host.Value}";
-                disc.ImageName = root + "/uploads/" + disc.ImageName;
+                disc.ImageName = root + "/uploads/thumb_" + disc.ImageName;
             }
             return discs;
         }
@@ -60,7 +60,7 @@ namespace MyDiscs.Controllers
             
             //add link to image name in response
             var root = $"{Request.Scheme}://{Request.Host.Value}";
-            disc.ImageName = root + "/uploads/" + disc.ImageName;
+            disc.ImageName = root + "/uploads/thumb_" + disc.ImageName;
 
             return disc;
         }
